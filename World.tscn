@@ -1,0 +1,195 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[node name="World" type="Node"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 608, 288 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 4.76837e-007, -4.17233e-007 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Platadormas" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="platSolid" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 640, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid2" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 576, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid2"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid2"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid3" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 512, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid3"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid3"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid8" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 384, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid8"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid8"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid9" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 320, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid9"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid9"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid10" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 256, 352 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid10"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid10"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid11" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 416, 224 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid11"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid11"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid4" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 704, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid4"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid4"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid5" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 768, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid5"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid5"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid6" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 768, 384 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid6"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid6"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="platSolid7" type="StaticBody2D" parent="Platadormas"]
+editor/display_folded = true
+position = Vector2( 768, 320 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platadormas/platSolid7"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platadormas/platSolid7"]
+visible = false
+shape = SubResource( 2 )
