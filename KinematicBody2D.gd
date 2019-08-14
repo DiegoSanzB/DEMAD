@@ -3,6 +3,7 @@ extends KinematicBody2D
 #Variables
 var motion = Vector2()
 var deadZone = 0.2
+var dobleSalto = 0
 export var speedMultiplier = 400
 
 #Constantes
@@ -27,6 +28,10 @@ func joy_con_changed(deviceid, isConnected): #primero: identifica coneccion, seg
 #Fisica
 func _physics_process(delta):
 	#Gravedad
+	if Input.get_connected_joypads().size() > 0:
+		var yAxis = Input.get_joy_axis(0,JOY_AXIS_1)
+		if yAxis > 0 and abs(yAxis) > deadZone and motion.y > 0:
+			motion.y += yAxis * 100
 	
 	if motion.y > 0:
 		motion.y += 2 *  GRAVITY
@@ -34,9 +39,16 @@ func _physics_process(delta):
 		motion.y += GRAVITY
 	
 	#Salto
+	print(dobleSalto)
 	if is_on_floor():
+		dobleSalto = 0
+		if Input.is_action_just_pressed("ui_up") or (Input.is_joy_button_pressed(0,JOY_BUTTON_0)):
+			motion.y = JUMP_HEIGHT
+	if not is_on_floor() and dobleSalto == 0:
 		if Input.is_action_just_pressed("ui_up") or Input.is_joy_button_pressed(0,JOY_BUTTON_0):
 			motion.y = JUMP_HEIGHT
+			dobleSalto =1
+		
 			
 	#Movimiento gorizonttal con joystick
 	if Input.get_connected_joypads().size() > 0:
