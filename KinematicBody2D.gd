@@ -2,7 +2,11 @@ extends KinematicBody2D
 
 #Variables
 var motion = Vector2()
-var speedMultiplier = 400
+export var speedMultiplier = 400
+export var acceleration = 0.4
+export var airAcceleration = 0.1
+export var friction = 0.3
+export var frictionModifier = 13
 var dobleSalto = 0
 var controlesConectados = Input.get_connected_joypads().size()
 var deadZone = 0.2
@@ -54,17 +58,21 @@ func _physics_process(delta):
 			motion.y = JUMP_HEIGHT
 			dobleSalto =1
 		
+		
 			
 	#Movimiento gorizonttal con joystick
 	if Input.get_connected_joypads().size() > 0:
 		var xAxis = Input.get_joy_axis(control,JOY_AXIS_0)
 		if abs(xAxis) > deadZone:
-			#if  xAxis > 0:
-				motion.x = 100 * delta * speedMultiplier * (xAxis)
-			#elif  xAxis < 0:
-				#motion.x = -100 * delta * speedMultiplier * abs(xAxis)
+			if  is_on_floor():
+				motion.x = lerp(motion.x,speedMultiplier*(xAxis),acceleration)
+			else:
+				motion.x = lerp(motion.x,speedMultiplier*(xAxis),airAcceleration)
 		else:
-			motion.x = 0
+			if is_on_floor():
+				motion.x = lerp(motion.x,0,friction)
+			else:
+				motion.x = lerp(motion.x,0,friction/13)
 			
 		#Check de que tecla se esta apretando
 		#for i in range(16):
