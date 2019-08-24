@@ -12,7 +12,6 @@ var controlesConectados = Input.get_connected_joypads().size()	#Cantidad de cont
 var deadZone = 0.2					#Zona de no activacion del joystick
 export var control = 0				#Identificador del control, equivale al orden de conexion
 
-
 #Constantes
 const UP = Vector2(0, -1)			#Define hacia donde es arriba
 const GRAVITY = 20					#Constante de gravedad
@@ -32,11 +31,13 @@ func joy_con_changed(deviceid, isConnected): #primero: identifica coneccion, seg
 			print(Input.get_joy_name(0) + ' encontrado')
 		else:
 			print('Control desconectado')
+
 #Cada frame
 func _process(delta):
 	#Quit game
 	if Input.is_key_pressed(KEY_Q):
 		get_tree().quit()
+
 
 #Fisica
 func _physics_process(delta):
@@ -86,4 +87,3 @@ func _physics_process(delta):
 				#print('Boton ' + str(i) + ' presionado, debiera ser ' + Input.get_joy_button_string(i) )
 				
 	motion = move_and_slide(motion,UP)
-
