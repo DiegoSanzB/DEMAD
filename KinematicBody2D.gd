@@ -5,13 +5,12 @@ var motion = Vector2()				#Define hacia donde es el movimiento
 export var speedMultiplier = 400	#Multiplicador de velocidad
 export var acceleration = 0.4		#Aceleracion
 export var airAcceleration = 0.1	#Aceleracion en el aire
-export var friction = 0.3			#Friccion
-export var frictionModifier = 13	#Modificador de Friccion
+export var friction = 0.3			#Friccion(frenado en el suelo)
+export var frictionModifier = 13	#Modificador de Friccion(divisor de la friccion cuando esta en el aire)
 var dobleSalto = 0					#Doble Salto
 var controlesConectados = Input.get_connected_joypads().size()	#Cantidad de controles conectados
 var deadZone = 0.2					#Zona de no activacion del joystick
 export var control = 0				#Identificador del control, equivale al orden de conexion
-var jumpButton = "ui_up" + str(control)	#Fail xd
 
 #Constantes
 const UP = Vector2(0, -1)			#Define hacia donde es arriba
@@ -33,6 +32,13 @@ func joy_con_changed(deviceid, isConnected): #primero: identifica coneccion, seg
 		else:
 			print('Control desconectado')
 
+#Cada frame
+func _process(delta):
+	#Quit game
+	if Input.is_key_pressed(KEY_Q):
+		get_tree().quit()
+
+
 #Fisica
 func _physics_process(delta):
 	#Gravedad
@@ -52,10 +58,10 @@ func _physics_process(delta):
 	#print(Input.is_joy_button_pressed(0,JOY_BUTTON_0)) #Debbug: estar apretando A
 	if is_on_floor():
 		dobleSalto = 0
-		if (Input.is_joy_button_pressed(control,JOY_BUTTON_0)):#Input.is_action_just_pressed("ui_up") or 
+		if Input.is_action_just_pressed("ui_jump" + str(control)):#(Input.is_joy_button_pressed(control,JOY_BUTTON_0)):#Input.is_action_just_pressed("ui_up") or 
 			motion.y = JUMP_HEIGHT
 	if not is_on_floor() and dobleSalto == 0:
-		if (Input.is_joy_button_pressed(control,JOY_BUTTON_0)):#Input.is_action_just_pressed("ui_up") or Input.is_joy_button_pressed(control,JOY_BUTTON_0):
+		if Input.is_action_just_pressed("ui_jump" + str(control)):#(Input.is_joy_button_pressed(control,JOY_BUTTON_0)):#Input.is_action_just_pressed("ui_up") or Input.is_joy_button_pressed(control,JOY_BUTTON_0):
 			motion.y = JUMP_HEIGHT
 			dobleSalto =1
 		
@@ -73,7 +79,7 @@ func _physics_process(delta):
 			if is_on_floor():
 				motion.x = lerp(motion.x,0,friction)
 			else:
-				motion.x = lerp(motion.x,0,friction/13)
+				motion.x = lerp(motion.x,0,friction/frictionModifier)
 			
 		#Check de que tecla se esta apretando
 		#for i in range(16):
@@ -81,9 +87,3 @@ func _physics_process(delta):
 				#print('Boton ' + str(i) + ' presionado, debiera ser ' + Input.get_joy_button_string(i) )
 				
 	motion = move_and_slide(motion,UP)
-
-#Cada frame
-func _process(delta):
-	#Quit game
-	if Input.is_key_pressed(KEY_Q):
-		get_tree().quit()
