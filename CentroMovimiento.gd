@@ -16,15 +16,21 @@ var diferenciaX = 0
 var diferenciaY = 0
 
 func max_arr(arr):
-	var max_val = arr[0]
-	for i in range(1, arr.size()):
-		max_val = max(max_val, arr[i])
-		return max_val
+	if arr.size() == 1:
+		return arr[0]
+	else:
+		var max_val = arr[0]
+		for i in range(1, arr.size()):
+			max_val = max(max_val, arr[i])
+			return max_val
 func min_arr(arr):
-	var min_val = arr[0]
-	for i in range(1, arr.size()):
-		min_val = min(min_val, arr[i])
-		return min_val
+	if arr.size() == 1:
+		return arr[0]
+	else:
+		var min_val = arr[0]
+		for i in range(1, arr.size()):
+			min_val = min(min_val, arr[i])
+			return min_val
 
 func _ready():
 	set_process(true)
