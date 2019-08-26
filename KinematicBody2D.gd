@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 #Variables
+var spawn = Vector2(0,0)
 var motion = Vector2()				#Define hacia donde es el movimiento
 export var speedMultiplier = 400	#Multiplicador de velocidad
 export var acceleration = 0.4		#Aceleracion
@@ -12,6 +13,7 @@ var controlesConectados = Input.get_connected_joypads().size()	#Cantidad de cont
 var deadZone = 0.2					#Zona de no activacion del joystick
 export var control = 0				#Identificador del control, equivale al orden de conexion
 
+
 #Constantes
 const UP = Vector2(0, -1)			#Define hacia donde es arriba
 const GRAVITY = 20					#Constante de gravedad
@@ -19,11 +21,23 @@ const JUMP_HEIGHT = -550			#Salto maximo
 
 #Check de control
 func _ready():
+	set_process(true)
+	set_physics_process(true)
 	Input.connect("joy_connection_changed", self,"joy_con_changed")
 	add_to_group('players')
+	
 
 #Al conectar un control printea su numero
 func joy_con_changed(deviceid, isConnected): #primero: identifica coneccion, segundo: identifica si es conexión o desconexión
+	AutoLoad.ActualizandoControles = true
+	AutoLoad.Controles = Input.get_connected_joypads() #Proceso de deteccion de 
+	AutoLoad.Controles.resize(4)                       #controles inicializados
+	AutoLoad.ControlesInicializados = []
+	AutoLoad.ActualizandoControles = false
+	for i in [0,1,2,3]:
+		if AutoLoad.Controles[i] != null:
+			AutoLoad.ControlesInicializados = AutoLoad.ControlesInicializados + [i]
+	
 	if isConnected:
 		print("Joystick " + str(deviceid) + " connected")
 		if  Input.is_joy_known(0): #Reconoce algunos tipos de control
@@ -37,6 +51,7 @@ func _process(delta):
 	#Quit game
 	if Input.is_key_pressed(KEY_Q):
 		get_tree().quit()
+	pass
 
 
 #Fisica
@@ -63,7 +78,7 @@ func _physics_process(delta):
 	if not is_on_floor() and dobleSalto == 0:
 		if Input.is_action_just_pressed("ui_jump" + str(control)):#(Input.is_joy_button_pressed(control,JOY_BUTTON_0)):#Input.is_action_just_pressed("ui_up") or Input.is_joy_button_pressed(control,JOY_BUTTON_0):
 			motion.y = JUMP_HEIGHT
-			dobleSalto =1
+			dobleSalto = 1
 		
 		
 			
@@ -87,3 +102,10 @@ func _physics_process(delta):
 				#print('Boton ' + str(i) + ' presionado, debiera ser ' + Input.get_joy_button_string(i) )
 				
 	motion = move_and_slide(motion,UP)
+	
+	if get_position().y > 1000:
+		set_position(spawn)
+		AutoLoad.coeficienteZoom.x = 1.15
+		AutoLoad.coeficienteZoom.y = 1.15
+
+
