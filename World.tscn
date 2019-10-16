@@ -1,31 +1,35 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://CentroMovimiento.gd" type="Script" id=3]
-[ext_resource path="res://Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://TilesetRecurso.tres" type="TileSet" id=1]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://CentroMovimiento.gd" type="Script" id=4]
+[ext_resource path="res://Camera2D.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+[node name="Main" type="Node"]
 
-[node name="World" type="Node"]
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -1376249, 156, 0, -1179645, 156, 0, -983033, 156, 0, -786429, 156, 0, -589818, 156, 0, -393212, 156, 0, -196602, 156, 0, -65532, 156, 0, 17, 156, 0, 18, 156, 0, 19, 156, 0, 20, 156, 0, 131063, 156, 0, 131064, 156, 0, 131065, 156, 0, 131066, 156, 0, 131067, 156, 0, 131068, 156, 0, 131069, 156, 0, 131070, 156, 0, 131071, 156, 0, 65536, 156, 0, 65537, 156, 0, 65538, 156, 0, 65553, 156, 0, 131089, 156, 0, 196623, 156, 0, 196624, 156, 0, 196625, 156, 0, 262145, 156, 0, 262146, 156, 0, 262147, 156, 0, 327683, 156, 0, 393228, 156, 0, 393229, 156, 0, 393230, 156, 0, 393231, 156, 0, 393232, 156, 0, 393233, 156, 0, 393234, 156, 0, 393235, 156, 0, 393236, 156, 0, 393237, 156, 0, 393238, 156, 0, 458756, 156, 0, 458757, 156, 0, 458760, 156, 0, 458761, 156, 0, 458762, 156, 0, 458763, 156, 0, 458764, 156, 0 )
 
 [node name="Players" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Player0" type="KinematicBody2D" parent="Players"]
 editor/display_folded = true
 position = Vector2( 60.9418, 4.43213 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Players/Player0"]
-position = Vector2( 4.76837e-07, -4.17233e-07 )
-texture = ExtResource( 2 )
+position = Vector2( 4.76837e-007, -4.17233e-007 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player0"]
 visible = false
@@ -34,7 +38,7 @@ shape = SubResource( 1 )
 [node name="Player1" type="KinematicBody2D" parent="Players"]
 editor/display_folded = true
 position = Vector2( 731.919, 378.371 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -42,8 +46,8 @@ control = 1
 
 [node name="Sprite" type="Sprite" parent="Players/Player1"]
 modulate = Color( 0.454902, 0.0784314, 0.0784314, 1 )
-position = Vector2( 4.76837e-07, -4.17233e-07 )
-texture = ExtResource( 2 )
+position = Vector2( 4.76837e-007, -4.17233e-007 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player1"]
 visible = false
@@ -52,15 +56,15 @@ shape = SubResource( 1 )
 [node name="Player2" type="KinematicBody2D" parent="Players"]
 editor/display_folded = true
 position = Vector2( -318.603, 30.2792 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 control = 2
 
 [node name="Sprite" type="Sprite" parent="Players/Player2"]
-position = Vector2( 4.76837e-07, -4.17233e-07 )
-texture = ExtResource( 2 )
+position = Vector2( 4.76837e-007, -4.17233e-007 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player2"]
 visible = false
@@ -69,7 +73,7 @@ shape = SubResource( 1 )
 [node name="Player3" type="KinematicBody2D" parent="Players"]
 editor/display_folded = true
 position = Vector2( 604.044, 379.732 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -77,598 +81,34 @@ control = 3
 
 [node name="Sprite" type="Sprite" parent="Players/Player3"]
 modulate = Color( 0.454902, 0.0784314, 0.0784314, 1 )
-position = Vector2( 4.76837e-07, -4.17233e-07 )
-texture = ExtResource( 2 )
+position = Vector2( 4.76837e-007, -4.17233e-007 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Players/Player3"]
 visible = false
 shape = SubResource( 1 )
 
 [node name="CentroMovimiento" type="Position2D" parent="Players"]
+visible = false
 position = Vector2( 406.701, 147.685 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="Players/CentroMovimiento"]
 position = Vector2( -22.0422, 72.5395 )
 current = true
-zoom = Vector2( 1.15, 1.15 )
+zoom = Vector2( 1.05, 1.05 )
+process_mode = 0
 smoothing_enabled = true
+smoothing_speed = 10.0
 drag_margin_left = 0.1
 drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
-[node name="Plataformas" type="Node" parent="."]
-
-[node name="platSolid" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 672, 448 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid2" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 608, 448 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid2"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid2"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid3" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 544, 448 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid3"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid3"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid4" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 736, 448 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid4"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid4"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid8" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 352, 448 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid8"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid8"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid9" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 288, 448 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid9"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid9"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid10" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 224, 352 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid10"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid10"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid12" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 0.25, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid12"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid12"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid21" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 63.4351, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid21"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid21"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid13" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( -191.344, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid13"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid13"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid16" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( -256.425, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid16"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid16"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid17" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( -319.956, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid17"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid17"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid18" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( -384.222, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid18"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid18"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid19" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( -447.753, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid19"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid19"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid20" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( -512.107, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid20"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid20"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid14" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( -127.26, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid14"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid14"]
-shape = SubResource( 2 )
-
-[node name="platSolid15" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( -63.245, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid15"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid15"]
-shape = SubResource( 2 )
-
-[node name="platSolid11" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 416, 224 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid11"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid11"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid31" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 304.457, -17.1743 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid31"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid31"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid32" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 423.311, -177.555 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid32"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid32"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid33" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 270.089, -350.824 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid33"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid33"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid34" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 433.334, -539.844 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid34"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid34"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid35" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 252.906, -730.297 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid35"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid35"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid36" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 441.926, -915.021 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid36"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid36"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid37" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 244.314, -1102.61 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid37"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid37"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid38" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 450.518, -1291.63 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid38"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid38"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid7" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 863.636, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid7"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid7"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid22" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 927.271, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid22"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid22"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid23" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 989.799, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid23"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid23"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid24" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 1054.07, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid24"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid24"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid25" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 1117.78, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid25"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid25"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid26" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 1182, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid26"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid26"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid27" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 1245.45, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid27"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid27"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid28" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 1309.67, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid28"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid28"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid29" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 1373.9, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid29"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid29"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid30" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 1438.12, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid30"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid30"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid6" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 800, 384 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid6"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid6"]
-visible = false
-shape = SubResource( 2 )
-
-[node name="platSolid5" type="StaticBody2D" parent="Plataformas"]
-editor/display_folded = true
-position = Vector2( 800, 448 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Plataformas/platSolid5"]
-modulate = Color( 0.00784314, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/platSolid5"]
-visible = false
-shape = SubResource( 2 )
+[node name="Sprite" type="Sprite" parent="Players/CentroMovimiento"]
+texture = ExtResource( 3 )
 
 [node name="Camara" type="Node" parent="."]

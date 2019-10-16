@@ -16,8 +16,8 @@ export var control = 0				#Identificador del control, equivale al orden de conex
 
 #Constantes
 const UP = Vector2(0, -1)			#Define hacia donde es arriba
-const GRAVITY = 20					#Constante de gravedad
-const JUMP_HEIGHT = -550			#Salto maximo
+const GRAVITY = 40					#Constante de gravedad
+const JUMP_HEIGHT = -850			#Salto maximo
 
 #Check de control
 func _ready():
@@ -107,5 +107,3 @@ func _physics_process(delta):
 		set_position(spawn)
 		AutoLoad.coeficienteZoom.x = 1.15
 		AutoLoad.coeficienteZoom.y = 1.15
-
-

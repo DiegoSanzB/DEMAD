@@ -1,14 +1,14 @@
 extends Camera2D
 
-var acercamiento = Vector2(1.15,1.15)
+var acercamiento = Vector2(1.5,1.5)
 func _ready():
 	set_process(true)
 	set_zoom(acercamiento)
 	pass 
 
 func _process(delta):
-	acercamiento.x = 1.15
-	acercamiento.y = 1.15
+	acercamiento.x = 1.5
+	acercamiento.y = 1.5
 	
 	if AutoLoad.coeficienteZoom.x >= AutoLoad.coeficienteZoom.y:
 		acercamiento = acercamiento * AutoLoad.coeficienteZoom.x

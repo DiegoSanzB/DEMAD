@@ -64,13 +64,16 @@ func _process(delta):
 			#del 2do control desaparecen y las del 1ro quedan congeladas. A lo mejor podemos hacer
 			#que cuando se desconecte un control, aparezca un mensaje de advertencia y se pause el 
 			#juego, para que el usuario reconecte el control, o salga de la partida.
-		maximoX = max_arr(PosJugadoresX)
-		minimoX = min_arr(PosJugadoresX)
-		maximoY = max_arr(PosJugadoresY)
-		minimoY = min_arr(PosJugadoresY)
+		print (Input.get_connected_joypads().size())
+		if Input.get_connected_joypads().size() != 0:
+			maximoX = max_arr(PosJugadoresX)
+			minimoX = min_arr(PosJugadoresX)
+			maximoY = max_arr(PosJugadoresY)
+			minimoY = min_arr(PosJugadoresY)
 		
-	PromedioX = sumaX / Input.get_connected_joypads().size()
-	PromedioY = sumaY / Input.get_connected_joypads().size()
+	if Input.get_connected_joypads().size() != 0: 
+		PromedioX = sumaX / Input.get_connected_joypads().size()
+		PromedioY = sumaY / Input.get_connected_joypads().size()
 	
 	Posicion.x = PromedioX
 	Posicion.y = PromedioY
@@ -78,8 +81,8 @@ func _process(delta):
 	diferenciaX = maximoX - minimoX
 	diferenciaY = maximoY - minimoY
 	
-	if diferenciaX > 1000:
-		AutoLoad.coeficienteZoom.x = (1.15 * diferenciaX)/1000
+	if diferenciaX > 900:
+		AutoLoad.coeficienteZoom.x = (1.15 * diferenciaX)/900
 	if diferenciaY > 500:
 		AutoLoad.coeficienteZoom.y = (1.15 * diferenciaY)/500
 	set_position(Posicion)
